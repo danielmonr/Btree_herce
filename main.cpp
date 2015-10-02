@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include <iostream>
+//#include <io>
 #include <fcntl.h>
-#include <sys\stat.h>
+//#include <sys\stat.h>
 #include <ctime>
 
 using namespace std;
@@ -57,14 +57,14 @@ int main()
 
 	int x, code=0; //DATO DEL NODO Y AUX VAR
 	char ch, treefilnam[51], inpfilnam[51]; //CHAR DE OPCIONES
-	
+
 	FILE *fpinp;
 	 /* FILE *fpinp;  */
 	 srand(time(NULL));
 
 	 printf("Ingrese el nombre con extencion, anterior o nuevo, del archivo para el Arbol b:  ");
 	 scanf("%50s", treefilnam);
-	 
+
 
 
 	 sC = clock();
@@ -86,7 +86,7 @@ int main()
 		printtree(root);
   	fC = clock();
 //////REALIZAR 10 BUSQUEDAS ALEATORIAS///////////////////////////////////////////////////////////////////////
-	
+
 	//tomar tiempo inicio de busquedas
 	sC2 = clock();
 
@@ -98,10 +98,10 @@ int main()
 		printf("%d", hipHipHurraNumRandom);
 		printf("\n");
 		 if (search(hipHipHurraNumRandom) == NOTFOUND)//BUSCA
-								  puts("No se encontro\n");	
+								  puts("No se encontro\n");
 		 fC3 = clock();//tiempo final que demora una busqueda, se toma unicamente de la ultima busqueda
 	 }
-	 
+
 	//tomar tiempo final de busquedas
 	 fC2 = clock();
 
@@ -127,11 +127,11 @@ int main()
 		fclose(fpinp);
 		printtree(root);
 	 }
-	
+
 //////ELSE  ->	if (ch == 'N') //////////////////////////////////////////////////////////////////////////////////////////////////
-			   
+
 	 //////DRAW|UPDATE (se repite continuamente)//////
-			  
+
 	for ( ; ; ) {
 		//INSTRUCCIONES DE USO
 		printf("\nIngrese un entero, seguido por la letra I, B, o S (I para insertar,"
@@ -140,17 +140,17 @@ int main()
 		code = scanf("%d", &x);//ENTRADA INTEGER
 		scanf(" %c", &ch);//ENTRADA STRING
 		ch = toupper(ch);//MAYUSCULAS <-> MINUSCULAS
-		
+
 		//SI HAY NUMERO, INSERTO, BORRO O BUSCO.
-		if (code)	
+		if (code)
 			switch (ch) {
 
 				  case 'I': if (insert(x) == SUCCESS)//INSERTA
-									printtree(root);//Imprime el arbol resultante después de insertar
+									printtree(root);//Imprime el arbol resultante despuï¿½s de insertar
 								break;//VUELVE AL UPDATE
 
 				  case 'B': if (delnode(x) == SUCCESS)//BORRA
-								  printtree(root);//Imprime el arbol resultante después de borrar
+								  printtree(root);//Imprime el arbol resultante despuï¿½s de borrar
 								else
 								 puts("Not found");
 								break;
@@ -175,7 +175,7 @@ int main()
 			  if (ch == 'Q')
 				 break;//ROMPE EL CICLO CONTINUO (DRAW|UPDATE) -> for
 	}//for
-	
+
   wrstart();
   fclose(fptree);
   return(0);//FIN
@@ -237,7 +237,7 @@ node nod;
 	readnode(t, &nod);
 	for (i=0; i < nod.cnt; i++)
 		printf("  %d", nod.key[i]);
-	
+
 	puts("");
 	printf("\n");
 }
@@ -656,27 +656,3 @@ node nod;
 	 position -= 6;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
